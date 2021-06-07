@@ -75,40 +75,43 @@ class Node {
       }
     }
     return brackerStack.isEmpty;
-  }
+  };
   
-//   debugger;
-  console.log(' ', checkBracketSequence('((()'));
 
-
-function isPalindrome (str) {
-
-    let noSpacesStr = '';
-    for (const char of str) {
-        if (char !== ' ') {
-            noSpacesStr += char.toLowerCase();
-        };
-    };
-
+// PALINDROME FUNCTION
+function isPalindrome() {
     const palindromeStack = new Stack();
-
-    for(let i = 0; i < Math.ceil( noSpacesStr.length / 2 ); i++) {
-        if ( !(noSpacesStr[i] === noSpacesStr[noSpacesStr.length - 1 - i]) ) {
-            palindromeStack.push(`${i} letter ${noSpacesStr[i]} isn't equal ${noSpacesStr.length - 1 - i} letter ${noSpacesStr[noSpacesStr.length - 1 - i]} in string. It is not a palindrome!`);
-            console.log('WRONG LETTER! IT IS NOT A PALINDROME!');
-            
-            console.log('palindromeStack :>> ', palindromeStack);
-            return false;
-
+    
+    return function(str) {
+        let noSpacesStr = '';
+        for (const char of str) {
+            if (char !== ' ') {
+                noSpacesStr += char.toLowerCase();
+            };
         };
+    
+        for(let i = 0; i < Math.ceil( noSpacesStr.length / 2 ); i++) {
+            if ( !(noSpacesStr[i] === noSpacesStr[noSpacesStr.length - 1 - i]) ) {
+                console.log('*******************************');
+                console.log('palindromeStack :>> ', palindromeStack);
+                return false;
+            };
+        };
+    
+        palindromeStack.push(str);
 
-        palindromeStack.push(`${i} letter ${noSpacesStr[i]}  is equal ${noSpacesStr.length - 1 - i} letter ${noSpacesStr[noSpacesStr.length - 1 - i]} in string`);
+        console.log('*******************************');
+        console.log('palindromeStack :>> ', palindromeStack);
+    
+        return true;
     };
-    console.log('palindromeStack :>> ', palindromeStack);
-    return true;
 };
 
-console.log('isPalindrome("tenet"):>> ', isPalindrome('tenet'));
-console.log('isPalindrome("raar"):>> ', isPalindrome('raar'));
-console.log('isPalindrome("guest"):>> ', isPalindrome('guest'));
-console.log('isPalindrome(\'а роза упала на лапу Азора\'):>> ', isPalindrome('а роза упала на лапу Азора'));
+const palindrome = isPalindrome();
+
+// testing...
+
+// console.log('isPalindrome("tenet"):>> ', palindrome('tenet'));
+// console.log('isPalindrome("guest"):>> ', palindrome('guest'));
+// console.log('palindrome(\'а роза упала на лапу Азора\'):>> ', palindrome('а роза упала на лапу Азора'));
+
