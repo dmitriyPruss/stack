@@ -39,27 +39,7 @@ class Node {
       return this._size === 0;
     }
   }
-  
-  const stack1 = new Stack(10);
-  
-  // stack1.push(1);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  // stack1.push(2);
-  
-  // console.log('stack1.pop() :>> ', stack1.pop());
-  // console.log('stack1.peek :>> ', stack1.peek);
-  // console.log('stack1.pop() :>> ', stack1.pop());
-  // console.log('stack1.peek :>> ', stack1.peek);
-  
-  // Является ли строка правильной скобочной последовательностью
-  
+
   function checkBracketSequence(str) {
     const brackerStack = new Stack();
     for (const s of str) {
@@ -79,6 +59,10 @@ class Node {
   
 
 // PALINDROME FUNCTION
+/**
+ * @param {string} str some string
+ * @returns {boolean} is string a palindrome or not
+ */
 function isPalindrome() {
     const palindromeStack = new Stack();
     
@@ -108,6 +92,7 @@ function isPalindrome() {
 };
 
 const palindrome = isPalindrome();
+
 
 // testing...
 
